@@ -1,0 +1,204 @@
+/* Universal selector *
+    Selects every single element on the page.
+    Every single elements has these properites
+    This is the lowest priority selector.
+ */
+/* *{
+    border-top: 10px solid #1098ad;
+} */
+
+/* Inheritance
+    We can set some stuff in the body.
+    Child elements of the body will inherit some of this stuff unless it's overwritten.
+*/
+body {
+    /* color: color of text. Can be inherited. */
+    color: #444;
+    /* font-family: The font family of the text. Can be inherited. */
+    font-family: sans-serif;
+
+    /* border does not get inherited by default. */
+    border-top: 10px solid #1098ad;
+}
+
+/* can specify multiple selectors with commas.
+aka a list selector */
+h1,
+h2,
+h3 {
+    color: #1098ad;
+}
+
+h1 {
+    /* font-size: height of text */
+    font-size: 26px;
+    /* text-transform: the formatting/case of the text */
+    text-transform: uppercase;
+    /* font-style: the style of the text */
+    font-style: italic;
+}
+
+h2 {
+    /* just because h1 is the first heading, doesn't mean it must be the biggest */
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 20px;
+    text-transform: uppercase;
+    /* text-align: alignment of text in the parent element */
+    text-align: center;
+}
+
+/* selects all <p> elements on the page */
+/* some child elements also inherit some styles. */
+p {
+    font-size: 22px;
+    /* line-height: space between the lines in multiple of font size. */
+    line-height: 1.5;
+}
+
+/* don't style text in ol or ul, but the li elements */
+li {
+    font-size: 20px;
+}
+
+/* can specify child element of specified element style with a space.
+aka descendent selector*/
+/* footer p {
+    font-size: 16px;
+} */
+
+/* Can do multiple descendants, if we want to.
+But it is not a good idea because it encodes the HTML structure in the CSS and can get big.
+article header p {
+    font-style: italic;
+}
+*/
+
+/* Hash selector/ID selector: selects an element with a specified id.
+This one selects an element with an id="author".
+IDs can be used only once */
+#author {
+    font-style: italic;
+}
+
+#copyright {
+    font-size: 16px;
+}
+
+/* Dot selector/Class selector: selects elements with a specified class.
+This one selects elements with a class="related-author" */
+.related-author {
+    font-size: 18px;
+    /* font-weight: weight of the font */
+    font-weight: bold;
+}
+
+.related {
+    /* list-style: changes the style of a ul or ol. */
+    list-style: none;
+}
+
+.main-header {
+    /* background-color: the background color of the element. */
+    background-color: #f7f7f7;
+}
+
+aside {
+    background-color: #f7f7f7;
+    /* border: shorthand property for the border of an element.
+                includes: border-width border-style border-color
+                can be sepecified with border-top, border-left, border-right, border-bottom.
+    */
+    border-top: 5px solid #1098ad;
+    border-bottom: 5px solid #1098ad;
+}
+
+body {
+    /* Can use the body for everything. */
+    /* background-color: blue; */
+}
+
+/* .first-li {
+    font-weight: bold;
+} */
+
+/* Pseudo-classes. This selector selects all li elements that are the first child elements of their parent. */
+ li:first-child {
+     font-weight: bold;
+ }
+/* Selects li elements that are the last child.  */
+ li:last-child {
+     font-style: italic;
+ }
+/* Selects nth child. Can be a number, "even", "odd", etc. */
+ li:nth-child(even) {
+     /* color: red; */
+ }
+/* pseudo-classes work the best when all the elements are the same.
+otherwise sometimes they don't work the way you'd expect.
+Ex. This will only select a p element that is the first child of an article.
+ article p:first-child {
+     color: red;
+ }
+ */
+
+
+/* Styling links using the a:link pseudoclass.
+    a:link targets <a> elements with an href */
+a:link {
+    color: #1098ad;
+    /* text-decoration: underlines, etc. also can be used as shorthand */
+    text-decoration: none;
+}
+
+/* a:visited targets links that have already been visited.*/
+a:visited {
+    color: #1098ad;
+}
+
+/* a:hover is applied when a link is hovered over by the mouse. */
+a:hover {
+    color: orangered;
+    font-weight: bold;
+    /* Here we use text-decoration as a shorthand */
+    text-decoration: underline orangered;
+}
+
+/* a:active is applied when the mouse clicks on the link. */
+a:active {
+    background-color: black;
+    font-style: italic;
+}
+
+/* Resolving conflicts */
+
+/* Highest priority: ID selector */
+/* #copyright {
+    color: red;
+} */
+
+/* Middle priority: class selector */
+/* .copyright {
+    color: blue;
+} */
+
+/* .text {
+    color: yellow;
+} */
+
+/* Lowest priority: element selector */
+/* SUPER-highest priority: !important */
+/* Don't actually use this - instead write your selectors as simple as possible */
+/* footer p {
+    color: green !important;
+} */
+
+nav {
+    font-size: 18px;
+}
