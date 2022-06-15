@@ -21,8 +21,12 @@
     margin-right: auto; */
     /* using shorthand to do the same thing. */
     margin: 0 auto;
+    /* This puts the like button inside of the container element. */
+    /* position: relative; */
 }
 
+
+/* PAGE SECTIONS */
 /* Inheritance
     We can set some stuff in the body.
     Child elements of the body will inherit some of this stuff unless it's overwritten.
@@ -38,6 +42,10 @@ body {
 
     /* border does not get inherited by default. */
     border-top: 10px solid #1098ad;
+
+    /* Setting body's position to relative to tell child w/ absolute positioning
+    where to position itself. */
+    position: relative;
 }
 
 .main-header {
@@ -54,12 +62,13 @@ body {
     margin-bottom: 60px;
 
     /* height/width controls just the dimensions of the content.
-    Does not include padding/margins. */
-    height: 80px;
+    Does not include padding/margins. Not a good idea because it won't expand to more space if needed. */
+    /* height: 80px; */
 }
 
 nav {
     font-size: 18px;
+    text-align: center;
 }
 
 article {
@@ -88,6 +97,7 @@ aside {
     width: 500px;
 }
 
+/* SMALLER ELEMENTS */
 /* can specify multiple selectors with commas.
 aka a list selector */
 h1,
@@ -109,6 +119,7 @@ h2 {
     /* just because h1 is the first heading, doesn't mean it must be the biggest */
     font-size: 40px;
     margin-bottom: 30px;
+    position: relative;
 }
 
 h3 {
@@ -134,6 +145,7 @@ p {
     /* line-height: space between the lines in multiple of font size. */
     line-height: 1.5;
     margin-bottom: 15px;
+    /* display: inline; */
 }
 
 ul,
@@ -148,6 +160,8 @@ li {
     font-size: 20px;
     /* Adding a margin to the bottom of the list item. */
     margin-bottom: 10px;
+    /* Changing to inline will make the boxes side by side to only occupy the space it needs. */
+    /* display: inline; */
 }
 
 /* can specify child element of specified element style with a space.
@@ -239,6 +253,73 @@ a:hover {
 a:active {
     background-color: black;
     font-style: italic;
+}
+
+nav a:link {
+    /* background-color: orangered; */
+    /* For inline elements like a, margin only applies to left/right margins. */
+    /* margin: 20px; */
+    /* Padding will fill the background-color but won't change the actual position */
+    /* padding: 20px; */
+    /* Changing the display from inline to block. */
+    /* display: block; */
+
+    margin-right: 30px;
+    margin-top: 10px;
+    /* when display is inline-block, the box model applies but the elements behave like inline blocks. */
+    display: inline-block;
+}
+
+/* You can chain multiple psuedo-classes together. */
+nav a:link:last-child {
+    margin-right: 0;
+}
+
+button {
+    font-size: 22px;
+    padding: 20px;
+    cursor: pointer;
+
+    /* Absolute positioning in relation to the viewport by default. */
+    position: absolute;
+
+    /* counts away from the direction */
+    /* top: 50px;
+    left: 50px; */
+    bottom: 50px;
+    right: 50px;
+}
+
+/* Pseudo-elements: two ::. These are elements that don't exist in HTML, but apply styles to specific parts of elemetns. */
+/* Styles the first letter of a text element */
+h1::first-letter {
+    font-style: normal;
+    margin-right: 5px;
+}
+
+/* Styles the first line of a paragraph element. */
+p::first-line {
+    /* color: red; */
+}
+
+/* Adjacent sibling selector: selects the first line of a p element after an h3  */
+h3 + p::first-line {
+    /* color: red; */
+}
+
+/* After psuedo-element: creates an element after something. Becomes the very last child element of the parent. */
+h2::after {
+    /* Defines the content of the new element. */
+    content: "TOP";
+    background-color: #ffe70e;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #444;
+    position: absolute;
+    top: -10px;
+    right: -25px;
 }
 
 /* We usually modify image dimensions in CSS, not HTML. */
