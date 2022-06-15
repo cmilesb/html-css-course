@@ -1,0 +1,415 @@
+/* Universal selector *
+    Selects every single element on the page.
+    Every single element has these properites
+    This is the lowest priority selector.
+ */
+* {
+    /* border-top: 10px solid #1098ad; */
+
+    /* Global reset for getting rid of margin and padding. */
+    margin: 0;
+    padding: 0;
+
+    /* Leave behind the default box-sizing behavior. Instead, box-sixing: border-box */
+    box-sizing: border-box;
+}
+
+.container {
+    /* Setting the width of the entire container to restrict the width of all of
+    the elements in the page.
+    A child element can never be wider or taller than it's parent. */
+    width: 1200px;
+    /* Setting margin-left and margin-right to auto will center the element on its parent. */
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* using shorthand to do the same thing. */
+    margin: 0 auto;
+    /* This puts the like button inside of the container element. */
+    /* position: relative; */
+}
+
+
+/* PAGE SECTIONS */
+/* Inheritance
+    We can set some stuff in the body.
+    Child elements of the body will inherit some of this stuff unless it's overwritten.
+*/
+body {
+    /* Can use the body for text-formatting every child element of the body.
+        Non-text stuff needs to use the universal selector. */
+
+    /* color: color of text. Can be inherited. */
+    color: #444;
+    /* font-family: The font family of the text. Can be inherited. */
+    font-family: sans-serif;
+
+    /* border does not get inherited by default. */
+    border-top: 10px solid #1098ad;
+
+    /* Setting body's position to relative to tell child w/ absolute positioning
+    where to position itself. */
+    position: relative;
+}
+
+.main-header {
+    /* background-color: the background color of the element. */
+    background-color: #f7f7f7;
+    /* Creates padding on all four sides. */
+    /* padding: 20px; */
+    /* Creates padding on different directions. */
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    /* shorthand for specifing padding for top/bottom & left/right */
+    padding: 20px 40px;
+    /* Use margin to create space between the header and the main h2 element */
+    margin-bottom: 60px;
+
+    /* height/width controls just the dimensions of the content.
+    Does not include padding/margins. Not a good idea because it won't expand to more space if needed. */
+    /* height: 80px; */
+}
+
+nav {
+    font-size: 18px;
+    /* text-align: center; */
+}
+
+article {
+    margin-bottom: 60px;
+}
+
+.post-header {
+    margin-bottom: 40px;
+}
+
+aside {
+    background-color: #f7f7f7;
+    /* border: shorthand property for the border of an element.
+                includes: border-width border-style border-color
+                can be sepecified with border-top, border-left, border-right, border-bottom.
+    */
+    border-top: 5px solid #1098ad;
+    border-bottom: 5px solid #1098ad;
+
+    /* Using padding to creates some space b/w border and text */
+    /* padding-top: 50px;
+    padding-bottom: 50px; */
+    padding: 50px 40px;
+
+    /* Can set specific dimensions of an element with width and height. */
+    /* width: 500px; */
+}
+
+/* SMALLER ELEMENTS */
+/* can specify multiple selectors with commas.
+aka a list selector */
+h1,
+h2,
+h3 {
+    color: #1098ad;
+}
+
+h1 {
+    /* font-size: height of text */
+    font-size: 26px;
+    /* text-transform: the formatting/case of the text */
+    text-transform: uppercase;
+    /* font-style: the style of the text */
+    font-style: italic;
+}
+
+h2 {
+    /* just because h1 is the first heading, doesn't mean it must be the biggest */
+    font-size: 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    /* Margin spaces do not get added - the bigger number wins as to the space.
+    The previous paragraph has a margin-bottom of 15px but only this 40px one is visible.
+    AKA collapsing margins. */
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 20px;
+    text-transform: uppercase;
+    /* text-align: alignment of text in the parent element */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* selects all <p> elements on the page */
+/* some child elements also inherit some styles. */
+p {
+    font-size: 22px;
+    /* line-height: space between the lines in multiple of font size. */
+    line-height: 1.5;
+    margin-bottom: 15px;
+    /* display: inline; */
+}
+
+ul,
+ol {
+    /* Numbers and bullets need some margin to be shown. */
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+/* don't style text in ol or ul, but the li elements */
+li {
+    font-size: 20px;
+    /* Adding a margin to the bottom of the list item. */
+    margin-bottom: 10px;
+    /* Changing to inline will make the boxes side by side to only occupy the space it needs. */
+    /* display: inline; */
+}
+
+/* can specify child element of specified element style with a space.
+aka descendent selector*/
+/* footer p {
+    font-size: 16px;
+} */
+
+/* Can do multiple descendants, if we want to.
+But it is not a good idea because it encodes the HTML structure in the CSS and can get big.
+article header p {
+    font-style: italic;
+}
+*/
+
+/* Hash selector/ID selector: selects an element with a specified id.
+This one selects an element with an id="author".
+IDs can be used only once */
+#author {
+    font-style: italic;
+}
+
+#copyright {
+    font-size: 16px;
+}
+
+/* Dot selector/Class selector: selects elements with a specified class.
+This one selects elements with a class="related-author" */
+.related-author {
+    font-size: 18px;
+    /* font-weight: weight of the font */
+    font-weight: bold;
+}
+
+.related {
+    /* list-style: changes the style of a ul or ol. */
+    list-style: none;
+    margin: 0;
+}
+
+/* .first-li {
+    font-weight: bold;
+} */
+
+/* Pseudo-classes. This selector selects all li elements that are the first child elements of their parent. */
+ li:first-child {
+     font-weight: bold;
+ }
+/* Selects li elements that are the last child.  */
+ li:last-child {
+     font-style: italic;
+     /* reset the margin to make it look better. */
+     margin-bottom: 0;
+ }
+/* Selects nth child. Can be a number, "even", "odd", etc. */
+ li:nth-child(even) {
+     /* color: red; */
+ }
+/* pseudo-classes work the best when all the elements are the same.
+otherwise sometimes they don't work the way you'd expect.
+Ex. This will only select a p element that is the first child of an article.
+ article p:first-child {
+     color: red;
+ }
+ */
+
+
+/* Styling links using the a:link pseudoclass.
+    a:link targets <a> elements with an href */
+a:link {
+    color: #1098ad;
+    /* text-decoration: underlines, etc. also can be used as shorthand */
+    text-decoration: none;
+}
+
+/* a:visited targets links that have already been visited.*/
+a:visited {
+    color: #1098ad;
+}
+
+/* a:hover is applied when a link is hovered over by the mouse. */
+a:hover {
+    color: orangered;
+    font-weight: bold;
+    /* Here we use text-decoration as a shorthand */
+    text-decoration: underline orangered;
+}
+
+/* a:active is applied when the mouse clicks on the link. */
+a:active {
+    background-color: black;
+    font-style: italic;
+}
+
+nav a:link {
+    /* background-color: orangered; */
+    /* For inline elements like a, margin only applies to left/right margins. */
+    /* margin: 20px; */
+    /* Padding will fill the background-color but won't change the actual position */
+    /* padding: 20px; */
+    /* Changing the display from inline to block. */
+    /* display: block; */
+
+    margin-right: 30px;
+    margin-top: 10px;
+    /* when display is inline-block, the box model applies but the elements behave like inline blocks. */
+    display: inline-block;
+}
+
+/* You can chain multiple psuedo-classes together. */
+nav a:link:last-child {
+    margin-right: 0;
+}
+
+button {
+    font-size: 22px;
+    padding: 20px;
+    cursor: pointer;
+
+    /* Absolute positioning in relation to the viewport by default. */
+    position: absolute;
+
+    /* counts away from the direction */
+    /* top: 50px;
+    left: 50px; */
+    bottom: 50px;
+    right: 50px;
+}
+
+/* Pseudo-elements: two ::. These are elements that don't exist in HTML, but apply styles to specific parts of elemetns. */
+/* Styles the first letter of a text element */
+h1::first-letter {
+    font-style: normal;
+    margin-right: 5px;
+}
+
+/* Styles the first line of a paragraph element. */
+p::first-line {
+    /* color: red; */
+}
+
+/* Adjacent sibling selector: selects the first line of a p element after an h3  */
+h3 + p::first-line {
+    /* color: red; */
+}
+
+/* After psuedo-element: creates an element after something. Becomes the very last child element of the parent. */
+h2::after {
+    /* Defines the content of the new element. */
+    content: "TOP";
+    background-color: #ffe70e;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #444;
+    position: absolute;
+    top: -10px;
+    right: -25px;
+}
+
+/* We usually modify image dimensions in CSS, not HTML. */
+.post-img {
+    /* setting height/width as percent of the height/width of the container.
+    This image will change sizes as the window is resized.*/
+    width: 100%;
+    /* setting height/width to auto is only necessary if image dimensions are already specifed. */
+    height: auto;
+}
+
+/* Resolving conflicts */
+
+/* Highest priority: ID selector */
+/* #copyright {
+    color: red;
+} */
+
+/* Middle priority: class selector */
+/* .copyright {
+    color: blue;
+} */
+
+/* .text {
+    color: yellow;
+} */
+
+/* Lowest priority: element selector */
+/* SUPER-highest priority: !important */
+/* Don't actually use this - instead write your selectors as simple as possible */
+/* footer p {
+    color: green !important;
+} */
+
+/* FLOATS */
+/* Floats work like absolute positioning, but the other elements will flow around them. */
+/* Floated elements can create margins and padding but will not be affected by non-floating margins or padding. */
+/* The rest of the elements act like they're not there. */
+.author-img {
+    float: left;
+    margin-bottom: 20px;
+}
+
+/* non-floated element starts behind the floating element unless float is specified. */
+.author {
+    /* padding-left: 80px; */
+    padding-top: 10px;
+    margin-left: 20px;
+    float: left;
+}
+
+h1 {
+    float: left;
+}
+
+nav {
+    float: right;
+}
+
+/* A bad way to clear a float - using an empty div. */
+/* .clear {
+    clear: both;
+} */
+
+/* Basically the same as the last thing, but makes less clutter. */
+.clearfix::after {
+    content:  "";
+    clear: both;
+    display: block;
+}
+
+/* Creating the float layout */
+article {
+    /* background-color: green; */
+    width: 825px;
+    float: left;
+}
+
+aside {
+    /* background-color: red; */
+    width: 300px;
+    float: right;
+}
+
+ footer {
+     /* background-color: yellow; */
+     clear: both;
+ }
