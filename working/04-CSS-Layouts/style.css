@@ -62,7 +62,7 @@ body {
     /* shorthand for specifing padding for top/bottom & left/right */
     padding: 20px 40px;
     /* Use margin to create space between the header and the main h2 element */
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
 
     /* height/width controls just the dimensions of the content.
     Does not include padding/margins. Not a good idea because it won't expand to more space if needed. */
@@ -75,7 +75,7 @@ nav {
 }
 
 article {
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
 }
 
 .post-header {
@@ -454,6 +454,8 @@ aside {
      font-style: italic;
  }
 
+ /* Flexbox Layout */
+/*
  .row {
      display: flex;
      gap: 75px;
@@ -462,17 +464,34 @@ aside {
  }
 
 aside {
-     /*
      DEFAULTS:
      flex-grow: 0;
      flex-shrink: 1;
      flex-basis: auto;
      flex: 0 1 auto;
-     */
+
      flex: 0 0 300px;
- }
+ } */
 
  article {
      flex: 1;
      margin-bottom: 0;
  }
+
+ /* CSS GRID LAYOUT */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    column-gap: 75px;
+    row-gap: 60px;
+    align-items: start;
+}
+
+.main-header {
+    grid-column: 1 / -1;
+}
+
+footer {
+    /* background-color: orange; */
+    grid-column: 1 / -1;
+}
