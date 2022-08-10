@@ -66,6 +66,9 @@ html {
     /* Percentage of user's browswer font size setting. here 1rem = 10px by default */
     font-size: 62.5%;
     overflow-x: hidden;
+
+    /* Does not work on Safari/Edge */
+    /* scroll-behavior: smooth; */
 }
 
 body {
